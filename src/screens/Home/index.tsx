@@ -11,27 +11,25 @@ export const Home = () => {
   return (
     <Screen>
       <ScrollView>
+        <View flex={1} justifyContent="center">
+          <Text variant="header" textAlign="center">
+            {translate('name')}
+          </Text>
+          <Text variant="body" textAlign="center">
+            This is An ENV Var : {API_URL}
+          </Text>
+          {isLoading && <ActivityIndicator color="#000" />}
 
-      <View flex={1} justifyContent="center">
-        <Text variant="header" textAlign="center">
-          {translate('name')}
-        </Text>
-        <Text variant="body" textAlign="center">
-          This is An ENV Var : {API_URL}
-        </Text>
-        {isLoading && <ActivityIndicator color="#000" />}
-
-        <Text variant="body" textAlign="center">
-          Data from Api : {JSON.stringify(data)}
-        </Text>
-        <Button label="LogOut" onPress={signOut} />
-        <Button
-          variant="secondary"
-          label="Show message"
-          onPress={() => showErrorMessage()}
-        />
-      </View>
-
+          <Text variant="body" textAlign="center">
+            Data from Api : {JSON.stringify(data)}
+          </Text>
+          <Button label="LogOut" onPress={signOut} />
+          <Button
+            variant="secondary"
+            label="Show message"
+            onPress={() => showErrorMessage()}
+          />
+        </View>
       </ScrollView>
     </Screen>
   );

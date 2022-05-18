@@ -1,5 +1,5 @@
 {
-  "name": "obytesapp",
+  "name": "zenday",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,7 +12,12 @@
     "setup:ios": "cd ios && pod install --repo-update && cd ..",
     "np": "np --no-publish",
     "postversion": "react-native-version",
-    "xcode": "xed -b ios"
+    "xcode": "xed -b ios",
+    "postinstall": "husky install",
+    "clean:android": "cd android && ./gradlew cleanBuildCache && ./gradlew clean && cd ..",
+    "clean:ios": "rm -rf ios/build",
+    "clean": "run-p clean:*",
+    "setup:ios": "cd ios && pod install --repo-update && cd .."
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
@@ -47,8 +52,8 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@bam.tech/react-native-make": "^3.0.0",
-    "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-conventional": "^12.0.1",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
     "@react-native-community/eslint-config": "^3.0.1",
     "@types/jest": "^26.0.23",
     "@types/lodash.memoize": "^4.1.6",
@@ -60,9 +65,9 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^7.32.0",
-    "husky": "^6.0.0",
+    "husky": "^8.0.1",
     "jest": "^26.6.3",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^12.4.1",
     "metro-react-native-babel-preset": "^0.67.0",
     "np": "^7.6.1",
     "npm-run-all": "^4.1.5",
@@ -91,5 +96,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/username/your-repo.git"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn lint"
+    }
   }
 }
