@@ -8,16 +8,14 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "clean": "react-native-clean-project",
+    "clean": "run-p clean:*",
     "setup:ios": "cd ios && pod install --repo-update && cd ..",
     "np": "np --no-publish",
     "postversion": "react-native-version",
     "xcode": "xed -b ios",
     "postinstall": "husky install",
     "clean:android": "cd android && ./gradlew cleanBuildCache && ./gradlew clean && cd ..",
-    "clean:ios": "rm -rf ios/build",
-    "clean": "run-p clean:*",
-    "setup:ios": "cd ios && pod install --repo-update && cd .."
+    "clean:ios": "rm -rf ios/build"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
@@ -34,6 +32,7 @@
     "react-hook-form": "^7.29.0",
     "react-native": "0.68.1",
     "react-native-bootsplash": "^4.1.4",
+    "react-native-countdown-circle-timer": "^3.0.9",
     "react-native-dotenv": "^3.3.1",
     "react-native-exception-handler": "^2.10.10",
     "react-native-flash-message": "^0.2.1",
