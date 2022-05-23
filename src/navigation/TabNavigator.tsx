@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Style} from 'screens';
+import {Home, Meditate, Style, } from 'screens';
 import {Home as HomeIcon, Settings} from 'ui';
 import {SvgProps} from 'react-native-svg';
 const Tab = createBottomTabNavigator();
@@ -11,6 +11,9 @@ const getRouteIcon = (
   let Icon = HomeIcon;
   switch (routeName) {
     case 'Home':
+      Icon = HomeIcon;
+      break;
+    case 'Meditate':
       Icon = HomeIcon;
       break;
     case 'Style':
@@ -31,6 +34,7 @@ export const TabNavigator = () => {
         },
       })}>
       <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Meditate" component={Meditate} />
       <Tab.Screen name="Style" component={Style} />
     </Tab.Navigator>
   );

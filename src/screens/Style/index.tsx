@@ -16,9 +16,9 @@ export const Style = () => {
         <Button variant="primary" label="Primary button " onPress={() => {}} />
         <Button
           variant="secondary"
-          label="secondary button "
+          label="Secondary button "
           onPress={() => {
-            throw new Error();
+            console.log('press me');
           }}
         />
       </View>

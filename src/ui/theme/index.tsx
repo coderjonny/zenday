@@ -19,8 +19,8 @@ const BaseTheme = {
   colors: {
     text: '#202124',
     background: '#fff',
-    primary: '#151522',
-    secondary: '#9c27b0',
+    primary: '#5A9A5B',
+    secondary: '#7B7B7B',
     muted: '#f1f3f4',
 
     // from figma file
